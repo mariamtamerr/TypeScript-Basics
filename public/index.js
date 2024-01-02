@@ -97,16 +97,6 @@ aboutTwo = {
     age: 30,
 };
 console.log(aboutTwo); // {name: 'layla', age: 30}
-let person1 = {
-    name: 'Mariam',
-    location: 'Egypt',
-    isProgrammer: true,
-};
-let person2 = {
-    name: 'Menna',
-    location: 'Egypt',
-    isProgrammer: true,
-};
 let sayStuff = {
     sayHi: function (name) {
         return `hi ${name}`;
@@ -152,19 +142,32 @@ console.log(invoiceOne.message()); // Mariam ows $200 for project
 // You can access the 'public' VALUE NOT DATA TYPE and change it
 invoiceTwo.amount = 500;
 console.log(invoiceTwo); // Invoice {client: 'Menna', amount: 500, details: 'Website'}
-// ---------------------------
-// Class Types : 
-//  1) public ... the default .. read & change inside&outside class
-//  2) private .. you can read and change only inside class/method
-//  3) readonly .. only read inside & outside class but not change the value
-// -------------------------------------
-// You can declare&initialize properties immediately in constructor USING MODIFIERS (readonly/oublic/private)
-// You can do :: 
-// class Invoice{
-//     constructor(
-//         readonly client: string, 
-//         private details: string,
-//         public amount: number,
-//     ) {}
-// }
-// BUT WITHOUT MODIFIERS, you'll get an error
+// Using it to create a variable
+const variable = {
+    name: "John",
+    age: 12,
+    speak(a) {
+        console.log(a);
+    },
+    spend(amount) {
+        console.log('I spent', amount);
+        return amount;
+    }
+};
+// Using it to as a parameter data type of a  function
+const functionThatHasInterfaceAsAParameterDataType = (person) => {
+    console.log('hello', person);
+    console.log('hello', person.name);
+};
+console.log(functionThatHasInterfaceAsAParameterDataType(variable));
+let person1 = {
+    name: 'Mariam',
+    location: 'Egypt',
+    isProgrammer: true,
+};
+let person2 = {
+    name: 'Menna',
+    location: 'Egypt',
+    isProgrammer: true,
+};
+// ----------------------------------------------------------------------

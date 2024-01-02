@@ -169,30 +169,8 @@ aboutTwo = {
 
 console.log(aboutTwo); // {name: 'layla', age: 30}
 
+// --------------------------------------------------------------------
 
-// ============== Interface ===========================
-// ---- Using an INTERFACE to make sure all have the same properties and value types
-interface Person {
-    name: string;
-    location: string;
-    isProgrammer: boolean;
-}
-
-
-let person1: Person = {
-    name:'Mariam',
-    location: 'Egypt',
-    isProgrammer: true,
-};
-
-let person2: Person = {
-    name:'Menna',
-    location: 'Egypt',
-    isProgrammer: true,
-};
-
-
-// ----------------------------------------------------------------------
 
 // ======================== functions ===================================
 
@@ -305,3 +283,79 @@ console.log(invoiceTwo); // Invoice {client: 'Menna', amount: 500, details: 'Web
 // }
 
 // BUT WITHOUT MODIFIERS, you'll get an error
+
+
+
+// ----------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+
+// ============== Interface ===========================
+
+
+// Interface is like class but we don't use it to make objects so it doesn't have a constructor 
+// We use it to define a basic structure that variables will have (same structure, same num of parameters, same data types)
+// ---- Using an INTERFACE to make sure all have the same properties and value types
+
+interface Isperson {
+    name: string;
+    age : number;
+    speak(a:string): void;
+    spend(a: number): number;
+}
+
+// Using it to create a variable
+const variable: Isperson = {
+    name: "John",
+    age: 12,
+    speak(a:string): void {
+        console.log(a);
+    },
+    spend(amount: number): number {
+        console.log('I spent', amount );
+        return amount;
+    }
+} ;
+
+
+// Using it to as a parameter data type of a  function
+const functionThatHasInterfaceAsAParameterDataType = (person: Isperson) => {
+   
+    console.log('hello', person);
+    console.log('hello', person.name);
+}
+
+console.log(functionThatHasInterfaceAsAParameterDataType(variable)); 
+// Output : 
+//      hello {name: 'John', age: 12, speak: ƒ, spend: ƒ}
+//      hello John
+
+
+
+
+
+
+
+
+
+// -----------------------
+interface Person {
+    name: string;
+    location: string;
+    isProgrammer: boolean;
+}
+
+
+let person1: Person = {
+    name:'Mariam',
+    location: 'Egypt',
+    isProgrammer: true,
+};
+
+let person2: Person = {
+    name:'Menna',
+    location: 'Egypt',
+    isProgrammer: true,
+};
+
+
+// ----------------------------------------------------------------------
