@@ -244,6 +244,64 @@ console.log(greet("ahmed", "greetings")); // ahmed says greetings
 // -----------------------------------------------------------------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------------------------
 
+// ============== classes =============
+class Invoice {
+    // class properties
+    readonly client: string;
+    amount: number; // means public amount : ... but you don't have to write the public keyword cause it's the default
+    private details: string;
+
+// Initialize The Values In The Constructor not in the beginning so each obj can have a diff client/amount/details
+    constructor(client: string, amount: number, details: string) {
+        this.client = client;
+        this.amount = amount;
+        this.details = details;
+    }
+
+    message() {
+        return `${this.client} ows $${this.amount} for ${this.details}`;
+    }
+
+}
 
 
+const invoiceOne = new Invoice('Mariam', 200, 'project');
+const invoiceTwo = new Invoice('Menna', 340, 'Website');
 
+// You can make an array of the classes objects
+const invoice: Invoice[] = [];
+invoice.push(invoiceOne, invoiceTwo);
+console.log(invoice);
+
+
+console.log(invoiceOne.message()); // Mariam ows $200 for project
+
+// You can access the 'public' VALUE NOT DATA TYPE and change it
+invoiceTwo.amount = 500; 
+
+console.log(invoiceTwo); // Invoice {client: 'Menna', amount: 500, details: 'Website'}
+
+// ---------------------------
+
+// Class Types : 
+
+//  1) public ... the default .. read & change inside&outside class
+//  2) private .. you can read and change only inside class/method
+//  3) readonly .. only read inside & outside class but not change the value
+
+// -------------------------------------
+
+
+// You can declare&initialize properties immediately in constructor USING MODIFIERS (readonly/oublic/private)
+// You can do :: 
+
+// class Invoice{
+
+//     constructor(
+//         readonly client: string, 
+//         private details: string,
+//         public amount: number,
+//     ) {}
+// }
+
+// BUT WITHOUT MODIFIERS, you'll get an error
